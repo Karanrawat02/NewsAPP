@@ -1,25 +1,11 @@
-import {React,useState} from 'react';
+import {React} from 'react';
+import { useNavigate } from 'react-router-dom';
 import data from './Det';
-import { Link } from 'react-router-dom';
 
 const NewsPage =()=> {
-  const [selectedNews, setSelectedNews] = useState(null);
+  const history= useNavigate();
   const handleNewsClick = (index) => {
-    setSelectedNews(data[index]);
-  }
-
-  if (selectedNews) {
-    return (
-      <Link to={`/news/${data.indexOf(selectedNews)}`}>
-      Read More
-      </Link>
-
-      // <Details
-      //   title={selectedNews.Title}
-      //   imgUrl={selectedNews.imgUrl}
-      //   description={selectedNews.description}
-      // />
-    );
+    history(`/news/${index}`);
   }
 
   return (
@@ -29,7 +15,6 @@ const NewsPage =()=> {
           <img src={data.imgUrl} alt={"yes"} className="news-image" style={{ width: '286px'}}/>
           <h5 className="news-title">{data.Title}</h5>
             <button className="read-more-btn" onClick={()=> handleNewsClick(index)}>Read more</button>
-     
     </div>
       ))}
     </div>

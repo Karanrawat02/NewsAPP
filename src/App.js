@@ -8,10 +8,9 @@ function App() {
   return (
     <>
     <BNavbar />
-    <NewsPage/>
     <Routes>
-    <Route path='/' element={<NewsPage />}></Route>
-      <Route path="/news/:index" element={<Details />}></Route>
+    <Route path='/' element={<NewsPage />} />
+    <Route path="/news/:index" element={<Details />} />
     </Routes>
   </>
   );
